@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪸 MyApp - Portfolio</title>
+</head>
+
+<body>
+
+    <center>
+        <h2>🪸 Portfolio.co...</h2>
+        <p>Create Your Profile</p>
+    </center>
+
+    <hr>
+
+    <fieldset style="width: 500px;">
+        <legend><b>Enter Profile Data</b></legend>
+
+        <form method="POST">
+
+            <!-- Profile Picture -->
+            <label>Profile Picture URL:</label>
+            <input type="text" name="pic" placeholder="Enter image URL">
+            <br><br>
+
+            <!-- Full Name -->
+            <label>Full Name:</label>
+            <input type="text" name="fullname" placeholder="Enter Full Name">
+            <br><br>
+
+            <!-- Username -->
+            <label>Username:</label>
+            <input type="text" name="uname" placeholder="Enter Username">
+            <br><br>
+
+            <!-- Email -->
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="Enter Email">
+            <br><br>
+
+            <!-- Phone -->
+            <label>Phone:</label>
+            <input type="tel" name="phone" placeholder="Enter Phone Number">
+            <br><br>
+
+            <!-- Date of Birth -->
+            <label>Date of Birth:</label>
+            <input type="date" name="dob">
+            <br><br>
+
+            <!-- Gender -->
+            <label>Gender:</label>
+            <select name="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <br><br>
+
+            <!-- Location -->
+            <label>Location:</label>
+            <input type="text" name="location" placeholder="City, State, Country">
+            <br><br>
+
+            <!-- Profession -->
+            <label>Profession:</label>
+            <input type="text" name="profession" placeholder="e.g. Web Developer">
+            <br><br>
+
+            <!-- Skills -->
+            <label>Skills:</label>
+            <input type="text" name="skills" placeholder="Python, HTML, CSS, JavaScript">
+            <br><br>
+
+            <!-- Education -->
+            <label>Education:</label>
+            <input type="text" name="education" placeholder="Enter your qualification">
+            <br><br>
+
+            <!-- Experience -->
+            <label>Experience:</label>
+            <input type="text" name="experience" placeholder="e.g. 2 Years">
+            <br><br>
+
+            <!-- Bio -->
+            <label>About Me:</label>
+            <br>
+            <textarea name="bio" rows="5" cols="50"
+                placeholder="Write something about yourself"></textarea>
+            <br><br>
+
+            <!-- GitHub -->
+            <label>GitHub:</label>
+            <input type="url" name="github" placeholder="https://github.com/username">
+            <br><br>
+
+            <!-- LinkedIn -->
+            <label>LinkedIn:</label>
+            <input type="url" name="linkedin" placeholder="https://linkedin.com/in/username">
+            <br><br>
+
+            <!-- Personal Website -->
+            <label>Website:</label>
+            <input type="url" name="website" placeholder="https://example.com">
+            <br><br>
+
+            <button type="submit">Submit Profile</button>
+
+        </form>
+    </fieldset>
+
+
+    <h3>My Profile</h3>
+
+    {% if data %}
+
+        <hr>
+
+        <!-- Profile Picture -->
+        <img src="{{ data['pic'] }}"
+             alt="Profile Picture"
+             width="220">
+
+        <h2>{{ data['fullname'] }}</h2>
+
+        <p>
+            <b>Username:</b>
+            {{ data['uname'] }}
+        </p>
+
+        <p>
+            <b>Email:</b>
+            {{ data['email'] }}
+        </p>
+
+        <p>
+            <b>Phone:</b>
+            {{ data['phone'] }}
+        </p>
+
+        <p>
+            <b>Date of Birth:</b>
+            {{ data['dob'] }}
+        </p>
+
+        <p>
+            <b>Gender:</b>
+            {{ data['gender'] }}
+        </p>
+
+        <p>
+            <b>Location:</b>
+            {{ data['location'] }}
+        </p>
+
+        <p>
+            <b>Profession:</b>
+            {{ data['profession'] }}
+        </p>
+
+        <p>
+            <b>Skills:</b>
+            {{ data['skills'] }}
+        </p>
+
+        <p>
+            <b>Education:</b>
+            {{ data['education'] }}
+        </p>
+
+        <p>
+            <b>Experience:</b>
+            {{ data['experience'] }}
+        </p>
+
+        <h3>About Me</h3>
+        <p>{{ data['bio'] }}</p>
+
+        <h3>Social Links</h3>
+
+        <p>
+            <b>GitHub:</b>
+            <a href="{{ data['github'] }}" target="_blank">
+                {{ data['github'] }}
+            </a>
+        </p>
+
+        <p>
+            <b>LinkedIn:</b>
+            <a href="{{ data['linkedin'] }}" target="_blank">
+                {{ data['linkedin'] }}
+            </a>
+        </p>
+
+        <p>
+            <b>Website:</b>
+            <a href="{{ data['website'] }}" target="_blank">
+                {{ data['website'] }}
+            </a>
+        </p>
+
+    {% endif %}
+
+</body>
+</html>
